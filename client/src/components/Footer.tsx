@@ -13,7 +13,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com" 
+                href="https://github.com/Semah04" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -24,7 +24,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/naski-semah/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -63,8 +63,8 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-gray-900 mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-600">
-              <li>your.email@example.com</li>
-              <li>+1 (555) 123-4567</li>
+              <li>naski.semah@gmail.com</li>
+              <li>+216 52 552 004</li>
               <li>Your City, Country</li>
             </ul>
           </div>
@@ -72,7 +72,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2024 My Portfolio. Built with Next.js & Tailwind CSS.
+            &copy; 2025 My Portfolio. Built with Next.js & Tailwind CSS.
           </p>
         </div>
       </div>
