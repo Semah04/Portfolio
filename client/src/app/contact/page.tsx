@@ -7,9 +7,7 @@ export default function Contact() {
     name: '',
     email: '',
     subject: '',
-    message: '',
-    budget: '',
-    timeline: ''
+    message: ''
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -38,9 +36,7 @@ export default function Contact() {
         name: '',
         email: '',
         subject: '',
-        message: '',
-        budget: '',
-        timeline: ''
+        message: ''
       })
     } catch (error) {
       setSubmitStatus('error')
@@ -238,48 +234,6 @@ export default function Contact() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="What's this about?"
               />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                  Budget Range
-                </label>
-                <select
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
-                  <option value="">Select budget range</option>
-                  <option value="under-5k">Under $5,000</option>
-                  <option value="5k-10k">$5,000 - $10,000</option>
-                  <option value="10k-25k">$10,000 - $25,000</option>
-                  <option value="25k-50k">$25,000 - $50,000</option>
-                  <option value="50k+">$50,000+</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-                  Project Timeline
-                </label>
-                <select
-                  id="timeline"
-                  name="timeline"
-                  value={formData.timeline}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
-                  <option value="">Select timeline</option>
-                  <option value="asap">ASAP</option>
-                  <option value="1-month">Within 1 month</option>
-                  <option value="2-3-months">2-3 months</option>
-                  <option value="3-6-months">3-6 months</option>
-                  <option value="6-months+">6+ months</option>
-                </select>
-              </div>
             </div>
 
             <div>

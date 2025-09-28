@@ -222,7 +222,7 @@ export default function Projects() {
               Start a Project
             </a>
             <a 
-              href="https://github.com/yourusername"
+              href="https://github.com/Semah04"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
