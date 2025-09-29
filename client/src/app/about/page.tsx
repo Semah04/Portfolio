@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface Skill {
   name: string
@@ -18,7 +21,19 @@ interface Experience {
   achievements: string[]
 }
 
+interface Certificate {
+  id: number
+  title: string
+  issuer: string
+  date: string
+  duration: string
+  skills: string[]
+  certificateId: string
+}
+
 const About: React.FC = () => {
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null)
+
   const skills: SkillGroup[] = [
     {
       category: "Frontend",
@@ -85,6 +100,42 @@ const About: React.FC = () => {
         "Learned React and Node.js",
         "Improved code quality through peer reviews"
       ]
+    }
+  ]
+
+  const certificates: Certificate[] = [
+    {
+      id: 1,
+      title: "Devenir développeur / développeuse web front-end",
+      issuer: "LinkedIn Learning",
+      date: "Jan 01, 2022",
+      duration: "49 hours 45 min",
+      skills: [
+        "Web Development",
+        "Web Design",
+        "Front-End Development",
+        "User Experience (UX)"
+      ],
+      certificateId: "AViiKrXQwl79aD_LFQhnwbjljCtn"
+    },
+    {
+      id: 2,
+      title: "Devenir graphiste",
+      issuer: "LinkedIn Learning",
+      date: "Dec 31, 2021",
+      duration: "43 hours 2 min",
+      skills: [
+        "Digital Illustration",
+        "Typography",
+        "Logo Design",
+        "Graphics",
+        "Illustration",
+        "Adobe Illustrator",
+        "Layout Design",
+        "Adobe Photoshop",
+        "Adobe InDesign"
+      ],
+      certificateId: "ASnzoIXvoyEZYF8j2Ll0R0u5S3xh"
     }
   ]
 
@@ -237,8 +288,102 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Personal Section */}
+      {/* Certificates Section */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+              Certifications
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
+              Professional certifications and continuous learning achievements
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {certificates.map((cert) => (
+              <div
+                key={cert.id}
+                className="group bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-600 cursor-pointer transform hover:-translate-y-1"
+                onClick={() => setSelectedCert(cert)}
+              >
+                {/* Certificate Header */}
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 p-6 text-white">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                          <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                        </svg>
+                        <span className="text-sm font-medium opacity-90">Certificate of Completion</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 leading-tight">
+                        {cert.title}
+                      </h3>
+                      <p className="text-blue-100 text-sm">{cert.issuer}</p>
+                    </div>
+                    <div className="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 ml-4 shadow-lg">
+                      <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Certificate Content */}
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-300">
+                    <div className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                      <span>{cert.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span>{cert.duration}</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Skills Covered:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cert.skills.slice(0, 4).map((skill, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full border border-gray-200 dark:border-gray-600"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                      {cert.skills.length > 4 && (
+                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
+                          +{cert.skills.length - 4} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
+                    <button className="w-full flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
+                      <span>View Details</span>
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Section */}
+      <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 transition-colors duration-300">
             Beyond Coding
@@ -276,6 +421,68 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div 
+            className="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 p-6 text-white z-10">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">{selectedCert.title}</h3>
+                  <p className="text-blue-100">{selectedCert.issuer}</p>
+                </div>
+                <button
+                  onClick={() => setSelectedCert(null)}
+                  className="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Completion Date</div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{selectedCert.date}</div>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Duration</div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{selectedCert.duration}</div>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">All Skills Covered</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedCert.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-2 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-lg border border-blue-200 dark:border-blue-700"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Certificate ID</div>
+                <div className="font-mono text-sm text-gray-900 dark:text-white break-all">{selectedCert.certificateId}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
