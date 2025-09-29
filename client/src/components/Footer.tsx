@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">My Portfolio</h3>
-            <p className="text-gray-600 mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">My Portfolio</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">
               A passionate developer creating amazing web experiences with modern technologies.
             </p>
             <div className="flex space-x-4">
@@ -16,7 +16,7 @@ export default function Footer() {
                 href="https://github.com/Semah04" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
               >
                 <span className="sr-only">GitHub</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -27,7 +27,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/naski-semah/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
               >
                 <span className="sr-only">LinkedIn</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -39,20 +39,20 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/projects" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -61,17 +61,17 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4">Contact</h4>
-            <ul className="space-y-2 text-gray-600">
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Contact</h4>
+            <ul className="space-y-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
               <li>naski.semah@gmail.com</li>
               <li>+216 52 552 004</li>
-              <li>Your City, Country</li>
+              <li>Ariana, Tunisia</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="text-center text-gray-500 text-sm">
+        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <p className="text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
             &copy; 2025 My Portfolio. Built with Next.js & Tailwind CSS.
           </p>
         </div>
@@ -79,3 +79,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer

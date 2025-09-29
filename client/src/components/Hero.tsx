@@ -1,28 +1,29 @@
 import Link from 'next/link'
 
-export default function Hero() {
+const Hero: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 py-20 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Welcome to My Portfolio
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
+            Hi, I'm <span className="text-blue-600 dark:text-blue-400">Naski Semah</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-delay">
-            I'm a developer passionate about creating amazing web experiences
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
+            A passionate full-stack developer creating amazing web experiences 
+            with modern technologies and clean, efficient code.
           </p>
-          <div className="space-x-4 animate-fade-in-delay-2">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/projects"
-              className="inline-block bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg"
+              className="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               View My Work
             </Link>
             <Link 
               href="/contact"
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:transform hover:scale-105"
+              className="inline-block bg-transparent border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-gray-900 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
-              Contact Me
+              Get In Touch
             </Link>
           </div>
         </div>
@@ -30,3 +31,5 @@ export default function Hero() {
     </section>
   )
 }
+
+export default Hero

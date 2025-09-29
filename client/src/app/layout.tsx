@@ -1,28 +1,28 @@
-import { ReactNode } from 'react'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import { DarkModeProvider } from './contexts/DarkModeContext'
 
 export const metadata = {
-  title: 'My Portfolio',
-  description: 'A showcase of my projects and skills',
+  title: 'Naski Semah - Full Stack Developer',
+  description: 'Portfolio of Naski Semah, a passionate full-stack developer creating amazing web experiences.',
 }
 
 interface RootLayoutProps {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 text-gray-900 antialiased">
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
+        <DarkModeProvider>
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </DarkModeProvider>
       </body>
     </html>
   )

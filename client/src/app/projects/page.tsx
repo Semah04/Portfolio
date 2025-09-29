@@ -3,12 +3,23 @@
 import { useState } from 'react'
 import ProjectCard from '@/components/ProjectCard'
 
-export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState('All')
+interface Project {
+  title: string
+  description: string
+  technologies: string[]
+  category: string
+  liveUrl: string
+  githubUrl: string
+  featured?: boolean
+  image?: string
+}
 
-  const categories = ['All', 'Frontend', 'Full Stack', 'Mobile', 'API']
+const Projects: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
-  const projects = [
+  const categories: string[] = ['All', 'Frontend', 'Full Stack', 'Mobile', 'API']
+
+  const projects: Project[] = [
     {
       title: "E-Commerce Platform",
       description: "A comprehensive e-commerce solution with user authentication, payment processing, inventory management, and admin dashboard. Features include real-time notifications, order tracking, and responsive design.",
@@ -99,26 +110,26 @@ export default function Projects() {
     : projects.filter(project => project.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               My Projects
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
               A collection of projects that showcase my skills in web development, 
               from simple websites to complex full-stack applications.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium transition-colors duration-300">
                 {projects.length} Projects
               </span>
-              <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium transition-colors duration-300">
                 {projects.filter(p => p.featured).length} Featured
               </span>
-              <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium transition-colors duration-300">
                 Multiple Technologies
               </span>
             </div>
@@ -127,7 +138,7 @@ export default function Projects() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b border-gray-200 sticky top-16 z-40">
+      <section className="py-8 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
@@ -136,8 +147,8 @@ export default function Projects() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-blue-600 dark:bg-blue-700 text-white shadow-lg'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
               >
                 {category}
@@ -152,7 +163,7 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No projects found in this category.</p>
+              <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">No projects found in this category.</p>
             </div>
           ) : (
             <>
@@ -173,31 +184,31 @@ export default function Projects() {
 
               {/* Project Stats */}
               <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
                     {filteredProjects.length}
                   </div>
-                  <div className="text-gray-600">
+                  <div className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
                     {selectedCategory === 'All' ? 'Total Projects' : `${selectedCategory} Projects`}
                   </div>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                  <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2 transition-colors duration-300">
                     {new Set(projects.flatMap(p => p.technologies)).size}
                   </div>
-                  <div className="text-gray-600">Technologies Used</div>
+                  <div className="text-gray-600 dark:text-gray-400 transition-colors duration-300">Technologies Used</div>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2 transition-colors duration-300">
                     {projects.filter(p => p.featured).length}
                   </div>
-                  <div className="text-gray-600">Featured Projects</div>
+                  <div className="text-gray-600 dark:text-gray-400 transition-colors duration-300">Featured Projects</div>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                  <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2 transition-colors duration-300">
                     {categories.length - 1}
                   </div>
-                  <div className="text-gray-600">Categories</div>
+                  <div className="text-gray-600 dark:text-gray-400 transition-colors duration-300">Categories</div>
                 </div>
               </div>
             </>
@@ -206,18 +217,18 @@ export default function Projects() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-blue-600 dark:bg-blue-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Interested in working together?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-blue-100 dark:text-blue-200 mb-8 transition-colors duration-300">
             I'm always open to discussing new projects and opportunities.
           </p>
           <div className="space-x-4">
             <a 
               href="/contact"
-              className="inline-block bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="inline-block bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Start a Project
             </a>
@@ -225,7 +236,7 @@ export default function Projects() {
               href="https://github.com/Semah04"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="inline-block bg-transparent border-2 border-white dark:border-blue-200 text-white dark:text-blue-200 hover:bg-white dark:hover:bg-blue-200 hover:text-blue-600 dark:hover:text-blue-800 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               View GitHub
             </a>
@@ -235,3 +246,5 @@ export default function Projects() {
     </div>
   )
 }
+
+export default Projects

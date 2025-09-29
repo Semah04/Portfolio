@@ -1,34 +1,53 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
+type SubmitStatus = 'idle' | 'success' | 'error'
+
+interface FormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
+interface ContactMethod {
+  icon: JSX.Element
+  title: string
+  value: string
+  description: string
+  link: string
+}
+
+interface FAQ {
+  question: string
+  answer: string
+}
+
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
     message: ''
   })
   
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     setIsSubmitting(true)
     
     try {
-      // Simulate API call - replace with your actual API endpoint
       await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Here you would normally send the data to your backend
       console.log('Form submitted:', formData)
       
       setSubmitStatus('success')
@@ -45,7 +64,7 @@ export default function Contact() {
     }
   }
 
-  const contactMethods = [
+  const contactMethods: ContactMethod[] = [
     {
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +74,7 @@ export default function Contact() {
       title: "Email",
       value: "Naski.semah@gmail.com",
       description: "Send me an email anytime!",
-      link: "Naski.semah@gmail.com"
+      link: "mailto:Naski.semah@gmail.com"
     },
     {
       icon: (
@@ -66,7 +85,7 @@ export default function Contact() {
       title: "Phone",
       value: "+216 52 552 004",
       description: "Mon-Fri from 8am to 6pm.",
-      link: "tel:+216 52 552 004"
+      link: "tel:+21652552004"
     },
     {
       icon: (
@@ -76,7 +95,7 @@ export default function Contact() {
         </svg>
       ),
       title: "Location",
-      value: "Ariana,Tunisia",
+      value: "Ariana, Tunisia",
       description: "Available for remote work",
       link: "#"
     },
@@ -87,13 +106,13 @@ export default function Contact() {
         </svg>
       ),
       title: "LinkedIn",
-      value: "https://www.linkedin.com/in/naski-semah/",
+      value: "linkedin.com/in/naski-semah",
       description: "Let's connect professionally",
       link: "https://www.linkedin.com/in/naski-semah/"
     }
   ]
 
-  const faqs = [
+  const faqs: FAQ[] = [
     {
       question: "What's your typical response time?",
       answer: "I usually respond to emails within 24 hours on weekdays. For urgent matters, feel free to call me directly."
@@ -113,26 +132,26 @@ export default function Contact() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Let's Work Together
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
+              Let&apos;s Work Together
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Have a project in mind? I'd love to hear about it. 
-              Send me a message and let's discuss how we can bring your ideas to life.
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
+              Have a project in mind? I&apos;d love to hear about it. 
+              Send me a message and let&apos;s discuss how we can bring your ideas to life.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium transition-colors duration-300">
                 ✅ Available for new projects
               </span>
-              <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium transition-colors duration-300">
                 🚀 Quick response time
               </span>
-              <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium transition-colors duration-300">
                 🌍 Remote friendly
               </span>
             </div>
@@ -144,10 +163,10 @@ export default function Contact() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               Get In Touch
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
               Choose your preferred way to reach out
             </p>
           </div>
@@ -157,16 +176,16 @@ export default function Contact() {
               <a
                 key={index}
                 href={method.link}
-                className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 hover:transform hover:-translate-y-1 text-center group"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md dark:hover:shadow-xl transition-all duration-200 hover:transform hover:-translate-y-1 text-center group"
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <div className="text-blue-600">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
+                  <div className="text-blue-600 dark:text-blue-400">
                     {method.icon}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900">{method.title}</h3>
-                <p className="text-blue-600 font-medium mb-2">{method.value}</p>
-                <p className="text-gray-600 text-sm">{method.description}</p>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white transition-colors duration-300">{method.title}</h3>
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 transition-colors duration-300">{method.value}</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">{method.description}</p>
               </a>
             ))}
           </div>
@@ -174,21 +193,21 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               Send Me a Message
             </h2>
-            <p className="text-lg text-gray-600">
-              Fill out the form below and I'll get back to you as soon as possible.
+            <p className="text-lg text-gray-600 dark:text-gray-300 transition-colors duration-300">
+              Fill out the form below and I&apos;ll get back to you as soon as possible.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                   Full Name *
                 </label>
                 <input
@@ -198,13 +217,13 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   placeholder="Your full name"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                   Email Address *
                 </label>
                 <input
@@ -214,14 +233,14 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   placeholder="your.email@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                 Subject *
               </label>
               <input
@@ -231,13 +250,13 @@ export default function Contact() {
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 placeholder="What's this about?"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                 Project Details *
               </label>
               <textarea
@@ -247,35 +266,34 @@ export default function Contact() {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 placeholder="Tell me about your project, goals, and any specific requirements..."
-              ></textarea>
+              />
             </div>
 
-            {/* Success/Error Messages */}
             {submitStatus === 'success' && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 transition-colors duration-300">
                 <div className="flex">
-                  <svg className="w-5 h-5 text-green-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-green-400 dark:text-green-500 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <div>
-                    <h3 className="text-sm font-medium text-green-800">Message sent successfully!</h3>
-                    <p className="text-sm text-green-700 mt-1">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                    <h3 className="text-sm font-medium text-green-800 dark:text-green-200">Message sent successfully!</h3>
+                    <p className="text-sm text-green-700 dark:text-green-300 mt-1">Thank you for reaching out. I&apos;ll get back to you within 24 hours.</p>
                   </div>
                 </div>
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 transition-colors duration-300">
                 <div className="flex">
-                  <svg className="w-5 h-5 text-red-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-red-400 dark:text-red-500 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                   <div>
-                    <h3 className="text-sm font-medium text-red-800">Something went wrong!</h3>
-                    <p className="text-sm text-red-700 mt-1">Please try again or contact me directly via email.</p>
+                    <h3 className="text-sm font-medium text-red-800 dark:text-red-200">Something went wrong!</h3>
+                    <p className="text-sm text-red-700 dark:text-red-300 mt-1">Please try again or contact me directly via email.</p>
                   </div>
                 </div>
               </div>
@@ -284,13 +302,13 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
+              className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 disabled:bg-blue-400 dark:disabled:bg-blue-800 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
             >
               {isSubmitting ? (
                 <>
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
                   Sending Message...
                 </>
@@ -303,22 +321,22 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 dark:text-gray-300 transition-colors duration-300">
               Quick answers to common questions
             </p>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">{faq.question}</h3>
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -326,20 +344,20 @@ export default function Contact() {
       </section>
 
       {/* Alternative Contact */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-blue-600 dark:bg-blue-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Prefer a different approach?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-blue-100 dark:text-blue-200 mb-8 transition-colors duration-300">
             You can also reach out through social media or schedule a call directly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/naski-semah"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              className="inline-block bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
             >
               LinkedIn Message
             </a>
@@ -347,7 +365,7 @@ export default function Contact() {
               href="https://twitter.com/yourhandle"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              className="inline-block bg-transparent border-2 border-white dark:border-blue-200 text-white dark:text-blue-200 hover:bg-white dark:hover:bg-blue-200 hover:text-blue-600 dark:hover:text-blue-800 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
             >
               Twitter DM
             </a>
@@ -355,7 +373,7 @@ export default function Contact() {
               href="https://calendly.com/yourlink"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+              className="inline-block bg-transparent border-2 border-white dark:border-blue-200 text-white dark:text-blue-200 hover:bg-white dark:hover:bg-blue-200 hover:text-blue-600 dark:hover:text-blue-800 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
             >
               Schedule Call
             </a>
@@ -365,3 +383,5 @@ export default function Contact() {
     </div>
   )
 }
+
+export default Contact
