@@ -8,31 +8,36 @@ interface Project {
   liveUrl: string
   githubUrl: string
   featured?: boolean
+  image?: string
 }
 
 const Home: React.FC = () => {
   const featuredProjects: Project[] = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboard. Built with modern web technologies for optimal performance.",
-      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
-      liveUrl: "https://your-project.vercel.app",
-      githubUrl: "https://github.com/yourusername/ecommerce",
-      featured: true
+      title: "Orange FabLabs Management Platform",
+      description: "A centralized platform for Orange FabLabs management featuring complete booking system with interactive calendar, request management for products and consumables, events organization, advanced real-time dashboards, secure JWT authentication with role management, and AI chatbot integration for user support.",
+      technologies: ["Next.js", "Express.js", "PostgreSQL", "JWT", "AI Chatbot"],
+      liveUrl: "https://orange-fablabs.vercel.app",
+      githubUrl: "https://github.com/naski-semah/orange-fablabs",
+      featured: true,
+      image: "/images/orange-fablabs.jpg"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag & drop functionality, and team collaboration features.",
-      technologies: ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
-      liveUrl: "https://your-task-app.vercel.app",
-      githubUrl: "https://github.com/yourusername/task-manager"
+      title: "DevOps Pipeline Project",
+      description: "Automated CI/CD pipeline with Jenkins and Docker integration. Features GitHub-Jenkins integration using Ngrok, comprehensive testing with JUnit/Mockito, code coverage with JaCoCo, and real-time monitoring with Grafana and Prometheus for performance tracking.",
+      technologies: ["Jenkins", "Docker", "Spring Boot", "Grafana", "Prometheus", "JaCoCo"],
+      liveUrl: "https://devops-pipeline-demo.vercel.app",
+      githubUrl: "https://github.com/naski-semah/devops-pipeline",
+      featured: true,
+      image: "/images/devops.png"
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather dashboard that provides real-time weather data, forecasts, and interactive maps using external APIs.",
-      technologies: ["React", "TypeScript", "API Integration", "Chart.js"],
-      liveUrl: "https://your-weather-app.vercel.app",
-      githubUrl: "https://github.com/yourusername/weather-dashboard"
+      title: "Intern-It Platform",
+      description: "Comprehensive internship management platform connecting students and companies. Features include job posting and discovery, streamlined application management, integrated communication system, and intuitive interface for both students and employers.",
+      technologies: ["Angular", "Spring Boot", "PostgreSQL", "REST API"],
+      liveUrl: "https://intern-it-platform.vercel.app",
+      githubUrl: "https://github.com/naski-semah/intern-it",
+      image: "/images/Logo_ESPRIT_Ariana.jpg"
     }
   ]
 
@@ -68,6 +73,7 @@ const Home: React.FC = () => {
                 liveUrl={project.liveUrl}
                 githubUrl={project.githubUrl}
                 featured={project.featured}
+                image={project.image}
               />
             ))}
           </div>

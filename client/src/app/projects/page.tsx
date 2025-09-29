@@ -19,89 +19,62 @@ const Projects: React.FC = () => {
 
   const categories: string[] = ['All', 'Frontend', 'Full Stack', 'Mobile', 'API']
 
-  const projects: Project[] = [
+ const projects: Project[] = [
     {
-      title: "E-Commerce Platform",
-      description: "A comprehensive e-commerce solution with user authentication, payment processing, inventory management, and admin dashboard. Features include real-time notifications, order tracking, and responsive design.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
+      title: "Orange FabLabs Management Platform",
+      description: "A centralized platform for Orange FabLabs management featuring complete booking system with interactive calendar, request management for products and consumables, events organization, advanced real-time dashboards, secure JWT authentication with role management, and AI chatbot integration for user support.",
+      technologies: ["Next.js", "Express.js", "PostgreSQL", "JWT", "AI Chatbot"],
       category: "Full Stack",
-      liveUrl: "https://ecommerce-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/ecommerce-platform",
+      liveUrl: "https://orange-fablabs.vercel.app",
+      githubUrl: "https://github.com/naski-semah/orange-fablabs",
       featured: true,
-      image: "/images/ecommerce-project.jpg"
+      image: "/images/orange-fablabs.jpg"
     },
     {
-      title: "Task Management Dashboard",
-      description: "A collaborative project management tool with drag-and-drop functionality, real-time updates, team collaboration features, and progress tracking.",
-      technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+      title: "DevOps Pipeline Project",
+      description: "Automated CI/CD pipeline with Jenkins and Docker integration. Features GitHub-Jenkins integration using Ngrok, comprehensive testing with JUnit/Mockito, code coverage with JaCoCo, and real-time monitoring with Grafana and Prometheus for performance tracking.",
+      technologies: ["Jenkins", "Docker", "Spring Boot", "Grafana", "Prometheus", "JaCoCo"],
       category: "Full Stack",
-      liveUrl: "https://taskmanager-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/task-manager",
-      image: "/images/taskmanager-project.jpg"
-    },
-    {
-      title: "Weather Analytics App",
-      description: "A modern weather application with detailed forecasts, interactive maps, historical data analysis, and location-based recommendations.",
-      technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API"],
-      category: "Frontend",
-      liveUrl: "https://weather-app-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/weather-app",
-      image: "/images/weather-project.jpg"
-    },
-    {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management with post scheduling, engagement tracking, and comprehensive reporting features.",
-      technologies: ["Vue.js", "Express.js", "MongoDB", "Twitter API", "Facebook API"],
-      category: "Full Stack",
-      liveUrl: "https://social-dashboard-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/social-dashboard",
-      image: "/images/social-project.jpg"
-    },
-    {
-      title: "Portfolio Website",
-      description: "A responsive portfolio website built with modern technologies, featuring smooth animations, dark mode, and optimal performance.",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      category: "Frontend",
-      liveUrl: "https://portfolio-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/portfolio",
+      liveUrl: "https://devops-pipeline-demo.vercel.app",
+      githubUrl: "https://github.com/naski-semah/devops-pipeline",
       featured: true,
-      image: "/images/portfolio-project.jpg"
+      image: "/images/devops.png"
     },
     {
-      title: "REST API Service",
-      description: "A robust REST API with authentication, rate limiting, comprehensive documentation, and automated testing suite.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Swagger"],
-      category: "API",
-      liveUrl: "https://api-service-demo.herokuapp.com/docs",
-      githubUrl: "https://github.com/yourusername/rest-api-service",
-      image: "/images/api-project.jpg"
-    },
-    {
-      title: "Real Estate Platform",
-      description: "A property listing platform with advanced search filters, virtual tours, mortgage calculator, and agent dashboard.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Mapbox", "Cloudinary"],
+      title: "Intern-It Platform",
+      description: "Comprehensive internship management platform connecting students and companies. Features include job posting and discovery, streamlined application management, integrated communication system, and intuitive interface for both students and employers.",
+      technologies: ["Angular", "Spring Boot", "PostgreSQL", "REST API"],
       category: "Full Stack",
-      liveUrl: "https://realestate-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/real-estate-platform",
-      image: "/images/realestate-project.jpg"
+      liveUrl: "https://intern-it-platform.vercel.app",
+      githubUrl: "https://github.com/naski-semah/intern-it",
+      image: "/images/Logo_ESPRIT_Ariana.jpg"
     },
     {
-      title: "Fitness Tracker App",
-      description: "A mobile-responsive fitness application with workout tracking, progress analytics, and social features for motivation.",
-      technologies: ["React Native", "Firebase", "Chart.js", "Redux"],
-      category: "Mobile",
-      liveUrl: "https://fitness-tracker-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/fitness-tracker",
-      image: "/images/fitness-project.jpg"
-    },
-    {
-      title: "Blog CMS",
-      description: "A content management system for bloggers with rich text editor, SEO optimization, and analytics dashboard.",
-      technologies: ["Next.js", "Sanity.io", "Tailwind CSS", "Vercel"],
+      title: "Learn Your Way",
+      description: "Innovative application connecting speech therapists with children having language disorders. Features workflow optimization, fluid user interface, appointment scheduling, progress tracking, and interactive exercises for therapy sessions.",
+      technologies: ["Angular", "Spring Boot", "PostgreSQL", "TypeScript"],
       category: "Full Stack",
-      liveUrl: "https://blog-cms-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/blog-cms",
-      image: "/images/blog-project.jpg"
+      liveUrl: "https://learn-your-way.vercel.app",
+      githubUrl: "https://github.com/naski-semah/learn-your-way",
+      image: "/images/way.png"
+    },
+    {
+      title: "Academic Management System",
+      description: "Complete educational institution management system with intuitive user interface. Handles student and teacher management, course scheduling, evaluation tracking, and features an optimized relational database for high performance.",
+      technologies: ["Java Swing", "MySQL", "JDBC"],
+      category: "Full Stack",
+      liveUrl: "#",
+      githubUrl: "https://github.com/naski-semah/academic-management",
+      image: "/images/Logo_ESPRIT_Ariana.jpg"
+    },
+    {
+      title: "Personal Portfolio",
+      description: "Modern and responsive portfolio website showcasing projects and skills. Features CSS animations, JavaScript interactivity, SEO optimization, and web accessibility standards. Built with clean code and best practices.",
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      category: "Frontend",
+      liveUrl: "https://naski-semah.ml",
+      githubUrl: "https://github.com/naski-semah/portfolio",
+      image: "/images/me.jpg"
     }
   ]
 

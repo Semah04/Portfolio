@@ -43,8 +43,8 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:flex items-center">
+            <div className="flex items-center space-x-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -59,16 +59,18 @@ const Header: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <DarkModeToggle size="md" className="ml-4" />
+            </div>
+            <div className="ml-6 flex items-center">
+              <DarkModeToggle size="md" />
             </div>
           </div>
 
           {/* Mobile menu button + Dark mode toggle */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center gap-2">
             <DarkModeToggle size="md" />
             <button
               onClick={toggleMenu}
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
               aria-label="Toggle menu"
             >
               <svg
