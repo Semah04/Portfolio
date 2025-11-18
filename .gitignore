@@ -12,3 +12,8 @@ package-lock.json
 .next/
 dist/
 build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
