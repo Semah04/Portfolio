@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Naski Semah - Portfolio Website
 
-## Getting Started
+Portfolio website showcasing projects, skills, and professional experience as a Fullstack Developer.
 
-First, run the development server:
+## 🚀 Features
+
+- **Modern Design**: Built with Next.js 14 and Tailwind CSS
+- **Dark Mode**: Toggle between light and dark themes
+- **Responsive**: Fully responsive design for all devices
+- **Performance**: Optimized for fast loading and SEO
+- **Projects Showcase**: Detailed project descriptions with technologies used
+- **Contact Form**: Easy way for potential clients to reach out
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Deployment**: Vercel
+
+## 📦 Getting Started
+
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Deploy on Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
-## Learn More
+### Quick Deploy
 
-To learn more about Next.js, take a look at the following resources:
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com/new)
+3. Set the **Root Directory** to `client`
+4. Vercel will automatically detect Next.js and configure the build settings
+5. Click Deploy!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Manual Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you need to configure manually, the `vercel.json` file in the root directory is already set up with:
+- Build command: `cd client && npm install && npm run build`
+- Output directory: `client/.next`
+- Framework: Next.js
 
-## Deploy on Vercel
+## 📝 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+client/
+├── src/
+│   ├── app/          # Next.js app router pages
+│   ├── components/   # React components
+│   └── lib/          # Utility functions
+├── public/           # Static assets
+└── package.json      # Dependencies
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Live Site
+
+Visit the live portfolio at: [naski-semah.netlify.app](https://naski-semah.netlify.app)
+
+## 📧 Contact
+
+- Email: sameh.naski@esprit.tn
+- LinkedIn: [linkedin.com/in/sameh-naski](https://www.linkedin.com/in/sameh-naski)
+- GitHub: [github.com/naski-semah](https://github.com/naski-semah)

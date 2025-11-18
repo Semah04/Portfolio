@@ -4,8 +4,8 @@ import './globals.css'
 import { DarkModeProvider } from './contexts/DarkModeContext'
 
 export const metadata = {
-  title: 'Naski Semah - Full Stack Developer',
-  description: 'Portfolio of Naski Semah, a passionate full-stack developer creating amazing web experiences.',
+  title: 'Naski Semah - Fullstack Developer',
+  description: 'Fullstack Developer with strong frontend expertise and 2+ years of experience building scalable, component-based applications using Angular, React, and TypeScript. Proven ability to design responsive user interfaces and integrate with backend services using Node.js and Java Spring Boot.',
 }
 
 interface RootLayoutProps {

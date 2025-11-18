@@ -72,9 +72,9 @@ const Contact: React.FC = () => {
         </svg>
       ),
       title: "Email",
-      value: "Naski.semah@gmail.com",
+      value: "sameh.naski@esprit.tn",
       description: "Send me an email anytime!",
-      link: "mailto:Naski.semah@gmail.com"
+      link: "mailto:sameh.naski@esprit.tn"
     },
     {
       icon: (
@@ -106,9 +106,9 @@ const Contact: React.FC = () => {
         </svg>
       ),
       title: "LinkedIn",
-      value: "linkedin.com/in/naski-semah",
+      value: "linkedin.com/in/sameh-naski",
       description: "Let's connect professionally",
-      link: "https://www.linkedin.com/in/naski-semah/"
+      link: "https://www.linkedin.com/in/sameh-naski"
     }
   ]
 
@@ -354,7 +354,7 @@ const Contact: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="https://linkedin.com/in/naski-semah"
+              href="https://linkedin.com/in/sameh-naski"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium py-3 px-6 rounded-lg transition-colors duration-200"

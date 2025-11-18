@@ -38,67 +38,70 @@ const About: React.FC = () => {
     {
       category: "Frontend",
       technologies: [
+        { name: "Angular", level: 90 },
         { name: "React", level: 90 },
         { name: "Next.js", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "JavaScript", level: 95 }
+        { name: "TypeScript", level: 90 },
+        { name: "JavaScript", level: 95 },
+        { name: "Bootstrap", level: 85 }
       ]
     },
     {
       category: "Backend",
       technologies: [
         { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 80 },
-        { name: "MongoDB", level: 75 },
-        { name: "PostgreSQL", level: 70 },
-        { name: "REST APIs", level: 85 }
+        { name: "Express.js", level: 85 },
+        { name: "Java Spring Boot", level: 85 },
+        { name: "REST API", level: 90 },
+        { name: "GraphQL", level: 75 },
+        { name: "PostgreSQL", level: 85 }
       ]
     },
     {
-      category: "Tools & Others",
+      category: "DevOps & Cloud",
       technologies: [
-        { name: "Git & GitHub", level: 90 },
-        { name: "Docker", level: 65 },
-        { name: "AWS", level: 60 },
-        { name: "Figma", level: 75 },
-        { name: "VS Code", level: 95 }
+        { name: "Docker", level: 80 },
+        { name: "Kubernetes", level: 75 },
+        { name: "Jenkins", level: 80 },
+        { name: "GitLab CI", level: 75 },
+        { name: "AWS", level: 70 },
+        { name: "SonarQube", level: 75 }
+      ]
+    },
+    {
+      category: "Testing & Tools",
+      technologies: [
+        { name: "JUnit", level: 85 },
+        { name: "Mockito", level: 80 },
+        { name: "Jest", level: 75 },
+        { name: "Git/GitHub", level: 90 },
+        { name: "Maven", level: 80 },
+        { name: "Agile/Scrum", level: 85 }
       ]
     }
   ]
 
   const experiences: Experience[] = [
     {
-      title: "Frontend Developer",
-      company: "Tech Solutions Inc.",
-      period: "2023 - Present",
-      description: "Developing modern web applications using React, Next.js, and TypeScript. Collaborated with design team to implement pixel-perfect UI/UX designs.",
+      title: "Software Engineering Intern",
+      company: "Orange Digital Center",
+      period: "Feb 2025 - Oct 2025",
+      description: "Designed and developed dynamic, user-friendly frontend using React/Next.js with component-based architecture, serving 500+ users and reducing equipment booking time by 40%. Engineered RESTful and GraphQL backend APIs using Node.js/Express.js managing 10,000+ monthly transactions for equipment inventory, bookings, and event coordination across 5 FabLab locations.",
       achievements: [
-        "Improved website performance by 40%",
-        "Led development of 3 major client projects",
-        "Mentored 2 junior developers"
+        "Integrated AI-powered conversational chatbot reducing support tickets by 35%",
+        "Implemented JWT-based role-based access control (RBAC) supporting 4 user roles with 99.9% authentication reliability",
+        "Orchestrated Docker containerization and CI/CD pipeline deployment, achieving 45% faster release cycles and zero-downtime updates",
+        "Collaborated with cross-functional remote team of 6 using Agile/Scrum methodology, delivering 12 sprint cycles with 95% on-time completion rate"
       ]
     },
     {
-      title: "Full Stack Developer",
-      company: "StartUp XYZ",
-      period: "2022 - 2023",
-      description: "Built and maintained full-stack applications using MERN stack. Responsible for both frontend and backend development.",
+      title: "Software Development Intern",
+      company: "DESIGN ET",
+      period: "Jul 2024 - Aug 2024",
+      description: "Contributed to digital design projects focusing on user-centered design principles and responsive prototyping.",
       achievements: [
-        "Developed MVP that acquired 1000+ users",
-        "Implemented CI/CD pipeline",
-        "Reduced deployment time by 60%"
-      ]
-    },
-    {
-      title: "Junior Developer",
-      company: "Digital Agency",
-      period: "2021 - 2022",
-      description: "Started my professional journey building websites and learning modern web technologies.",
-      achievements: [
-        "Completed 15+ client projects",
-        "Learned React and Node.js",
-        "Improved code quality through peer reviews"
+        "Participated in agile development workflows including daily standups, sprint planning, and retrospectives",
+        "Applied user-centered design principles to improve project outcomes"
       ]
     }
   ]
@@ -106,36 +109,31 @@ const About: React.FC = () => {
   const certificates: Certificate[] = [
     {
       id: 1,
-      title: "Devenir développeur / développeuse web front-end",
-      issuer: "LinkedIn Learning",
-      date: "Jan 01, 2022",
-      duration: "49 hours 45 min",
+      title: "2nd Prize Winner - CCCF4 Inter-Class Software Development Competition",
+      issuer: "ESPRIT Engineering School",
+      date: "2024",
+      duration: "Competition",
       skills: [
-        "Web Development",
-        "Web Design",
-        "Front-End Development",
-        "User Experience (UX)"
+        "Software Development",
+        "Team Collaboration",
+        "Problem Solving",
+        "Technical Excellence"
       ],
-      certificateId: "AViiKrXQwl79aD_LFQhnwbjljCtn"
+      certificateId: "CCCF4-2024-2nd-Prize"
     },
     {
       id: 2,
-      title: "Devenir graphiste",
-      issuer: "LinkedIn Learning",
-      date: "Dec 31, 2021",
-      duration: "43 hours 2 min",
+      title: "Sustainability, Work Ethics & Gender Equity Certificate",
+      issuer: "Honoris",
+      date: "2025",
+      duration: "Professional Development",
       skills: [
-        "Digital Illustration",
-        "Typography",
-        "Logo Design",
-        "Graphics",
-        "Illustration",
-        "Adobe Illustrator",
-        "Layout Design",
-        "Adobe Photoshop",
-        "Adobe InDesign"
+        "Sustainability",
+        "Work Ethics",
+        "Gender Equity",
+        "Professional Development"
       ],
-      certificateId: "ASnzoIXvoyEZYF8j2Ll0R0u5S3xh"
+      certificateId: "Honoris-2025-SWGE"
     }
   ]
 
@@ -172,29 +170,28 @@ const About: React.FC = () => {
                 About Me
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300">
-                Hi! I'm a passionate full-stack developer with over 3 years of experience 
-                creating digital solutions that make a difference. I love turning complex 
-                problems into simple, beautiful, and intuitive applications.
+                Fullstack Developer with strong frontend expertise and 2+ years of experience building scalable, 
+                component-based applications using Angular, React, and TypeScript. Proven ability to design responsive 
+                user interfaces and integrate with backend services using Node.js and Java Spring Boot.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-300">
-                When I'm not coding, you can find me exploring new technologies, 
-                contributing to open-source projects, or sharing my knowledge through 
-                technical writing and mentoring.
+                Experienced with containerized deployments, PostgreSQL, and Agile methodologies in remote-first environments. 
+                Passionate about clean code, system reliability, and delivering features that drive business value.
               </p>
               
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">50+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3+</div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">100+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">500+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Users Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">10K+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Monthly Transactions</div>
                 </div>
               </div>
 
@@ -382,8 +379,74 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Personal Section */}
+      {/* Education Section */}
       <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+              Education
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
+              Academic background and continuous learning
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
+                    Engineering Degree in Computer Science
+                  </h3>
+                  <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 transition-colors duration-300">
+                    ESPRIT Engineering School
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
+                    Tunis, Tunisia
+                  </p>
+                </div>
+                <span className="text-gray-500 dark:text-gray-400 font-medium transition-colors duration-300">
+                  Expected 2025
+                </span>
+              </div>
+              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                  Pursuing advanced studies in computer science with focus on software engineering, 
+                  system architecture, and modern development practices.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
+                    Computer Science Degree
+                  </h3>
+                  <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 transition-colors duration-300">
+                    ISET Charguia
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
+                    Tunis, Tunisia
+                  </p>
+                </div>
+                <span className="text-gray-500 dark:text-gray-400 font-medium transition-colors duration-300">
+                  2022
+                </span>
+              </div>
+              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                  Foundation in computer science principles, programming fundamentals, 
+                  and software development methodologies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 transition-colors duration-300">
             Beyond Coding

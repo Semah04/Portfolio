@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/Semah04" 
+                href="https://github.com/naski-semah" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.linkedin.com/in/naski-semah/" 
+                href="https://www.linkedin.com/in/sameh-naski" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Contact</h4>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
-              <li>naski.semah@gmail.com</li>
+              <li>sameh.naski@esprit.tn</li>
               <li>+216 52 552 004</li>
               <li>Ariana, Tunisia</li>
             </ul>

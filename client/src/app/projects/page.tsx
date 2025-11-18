@@ -17,13 +17,13 @@ interface Project {
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
-  const categories: string[] = ['All', 'Frontend', 'Full Stack', 'Mobile', 'API']
+  const categories: string[] = ['All', 'Full Stack', 'DevOps', 'Frontend']
 
  const projects: Project[] = [
     {
-      title: "Orange FabLabs Management Platform",
-      description: "A centralized platform for Orange FabLabs management featuring complete booking system with interactive calendar, request management for products and consumables, events organization, advanced real-time dashboards, secure JWT authentication with role management, and AI chatbot integration for user support.",
-      technologies: ["Next.js", "Express.js", "PostgreSQL", "JWT", "AI Chatbot"],
+      title: "Orange Digital Center - FabLabs Management Platform",
+      description: "Designed and developed dynamic, user-friendly frontend using React/Next.js serving 500+ users and reducing equipment booking time by 40%. Engineered RESTful and GraphQL backend APIs using Node.js/Express.js managing 10,000+ monthly transactions. Integrated AI-powered conversational chatbot reducing support tickets by 35%. Implemented JWT-based RBAC supporting 4 user roles with 99.9% authentication reliability.",
+      technologies: ["React", "Next.js", "Node.js", "Express.js", "GraphQL", "PostgreSQL", "JWT", "AI Chatbot", "Docker"],
       category: "Full Stack",
       liveUrl: "https://orange-fablabs.vercel.app",
       githubUrl: "https://github.com/naski-semah/orange-fablabs",
@@ -31,10 +31,10 @@ const Projects: React.FC = () => {
       image: "/images/orange-fablabs.jpg"
     },
     {
-      title: "DevOps Pipeline Project",
-      description: "Automated CI/CD pipeline with Jenkins and Docker integration. Features GitHub-Jenkins integration using Ngrok, comprehensive testing with JUnit/Mockito, code coverage with JaCoCo, and real-time monitoring with Grafana and Prometheus for performance tracking.",
-      technologies: ["Jenkins", "Docker", "Spring Boot", "Grafana", "Prometheus", "JaCoCo"],
-      category: "Full Stack",
+      title: "DevOps CI/CD Pipeline Automation",
+      description: "Architected automated CI/CD pipeline processing 50+ builds daily with Jenkins, Docker, and AWS EC2 integration. Configured Kubernetes deployments for containerized applications ensuring scalability and reliability. Implemented comprehensive testing framework with JUnit/Mockito achieving 85% code coverage tracked via JaCoCo. Built real-time performance monitoring dashboards using Grafana and Prometheus, reducing incident response time by 60%.",
+      technologies: ["Jenkins", "Docker", "Kubernetes", "AWS", "Grafana", "Prometheus", "JUnit", "Mockito", "JaCoCo"],
+      category: "DevOps",
       liveUrl: "https://devops-pipeline-demo.vercel.app",
       githubUrl: "https://github.com/naski-semah/devops-pipeline",
       featured: true,
@@ -42,17 +42,17 @@ const Projects: React.FC = () => {
     },
     {
       title: "Intern-It Platform",
-      description: "Comprehensive internship management platform connecting students and companies. Features include job posting and discovery, streamlined application management, integrated communication system, and intuitive interface for both students and employers.",
-      technologies: ["Angular", "Spring Boot", "PostgreSQL", "REST API"],
+      description: "Architected component-based Angular application with lazy-loading modules, RxJS state management, and responsive design serving 200+ students and 50+ partner companies. Developed Java Spring Boot REST APIs handling authentication, application tracking, and document management with PostgreSQL database interactions. Implemented role-based dashboards with seamless frontend-backend integration ensuring optimal performance and user experience.",
+      technologies: ["Angular", "Java Spring Boot", "PostgreSQL", "REST API", "RxJS", "JUnit"],
       category: "Full Stack",
       liveUrl: "https://intern-it-platform.vercel.app",
       githubUrl: "https://github.com/naski-semah/intern-it",
       image: "/images/Logo_ESPRIT_Ariana.jpg"
     },
     {
-      title: "Learn Your Way",
-      description: "Innovative application connecting speech therapists with children having language disorders. Features workflow optimization, fluid user interface, appointment scheduling, progress tracking, and interactive exercises for therapy sessions.",
-      technologies: ["Angular", "Spring Boot", "PostgreSQL", "TypeScript"],
+      title: "Learn Your Way - Healthcare Innovation Platform",
+      description: "Created therapeutic platform with Angular frontend connecting speech therapists with children having language disorders. Developed secure Java backend services with database interactions managing patient data compliant with healthcare standards. Integrated AI-assisted features personalizing therapy exercises based on progress tracking and assessment analytics.",
+      technologies: ["Angular", "Java Spring Boot", "AI Integration", "PostgreSQL", "TypeScript"],
       category: "Full Stack",
       liveUrl: "https://learn-your-way.vercel.app",
       githubUrl: "https://github.com/naski-semah/learn-your-way",
@@ -206,7 +206,7 @@ const Projects: React.FC = () => {
               Start a Project
             </a>
             <a 
-              href="https://github.com/Semah04"
+              href="https://github.com/naski-semah"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-transparent border-2 border-white dark:border-blue-200 text-white dark:text-blue-200 hover:bg-white dark:hover:bg-blue-200 hover:text-blue-600 dark:hover:text-blue-800 font-medium py-3 px-8 rounded-lg transition-colors duration-200"

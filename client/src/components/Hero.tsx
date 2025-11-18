@@ -5,12 +5,19 @@ const Hero: React.FC = () => {
     <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 py-20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
-            Hi, I'm <span className="text-blue-600 dark:text-blue-400">Naski Semah</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            NASKI SEMAH
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
-            A passionate full-stack developer creating amazing web experiences 
-            with modern technologies and clean, efficient code.
+          <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-6 transition-colors duration-300">
+            FULLSTACK DEVELOPER
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 transition-colors duration-300">
+            Fullstack Developer with strong frontend expertise and 2+ years of experience building scalable, 
+            component-based applications using Angular, React, and TypeScript. Proven ability to design responsive 
+            user interfaces and integrate with backend services using Node.js and Java Spring Boot.
+          </p>
+          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8 transition-colors duration-300">
+            Passionate about clean code, system reliability, and delivering features that drive business value.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
