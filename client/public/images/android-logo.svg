@@ -1,6 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3DDC84">
-  <path d="M6.18 2c-.22 0-.4.18-.4.4v1.34c-.6.35-1 .99-1 1.72v11.08c0 .73.4 1.37 1 1.72v1.34c0 .22.18.4.4.4h.04c.22 0 .4-.18.4-.4v-1.34h10.76v1.34c0 .22.18.4.4.4h.04c.22 0 .4-.18.4-.4v-1.34c.6-.35 1-.99 1-1.72V5.46c0-.73-.4-1.37-1-1.72V2.4c0-.22-.18-.4-.4-.4h-.04c-.22 0-.4.18-.4.4v1.34H6.58V2.4c0-.22-.18-.4-.4-.4zm.4 2.8h10.84v10.4H6.58V4.8z"/>
-  <circle cx="9" cy="8.5" r="1.5" fill="#fff"/>
-  <circle cx="15" cy="8.5" r="1.5" fill="#fff"/>
-  <path d="M9 12h6v2H9z" fill="#fff"/>
+  <!-- Android Robot Head -->
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#3DDC84"/>
+  <!-- Android Robot Body -->
+  <rect x="8" y="10" width="8" height="8" rx="1" fill="#3DDC84"/>
+  <!-- Left Antenna -->
+  <path d="M9 6L8 4h1l.5 2z" fill="#3DDC84"/>
+  <!-- Right Antenna -->
+  <path d="M15 6L16 4h-1l-.5 2z" fill="#3DDC84"/>
+  <!-- Left Eye -->
+  <circle cx="10" cy="12" r="1.5" fill="#fff"/>
+  <!-- Right Eye -->
+  <circle cx="14" cy="12" r="1.5" fill="#fff"/>
+  <!-- Mouth -->
+  <path d="M10 15h4v1h-4z" fill="#fff"/>
+  <!-- Left Arm -->
+  <rect x="5" y="11" width="3" height="1" rx="0.5" fill="#3DDC84"/>
+  <!-- Right Arm -->
+  <rect x="16" y="11" width="3" height="1" rx="0.5" fill="#3DDC84"/>
+  <!-- Left Leg -->
+  <rect x="9" y="18" width="2" height="2" rx="0.5" fill="#3DDC84"/>
+  <!-- Right Leg -->
+  <rect x="13" y="18" width="2" height="2" rx="0.5" fill="#3DDC84"/>
 </svg>
