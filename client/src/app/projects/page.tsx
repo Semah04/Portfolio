@@ -17,7 +17,7 @@ interface Project {
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
-  const categories: string[] = ['All', 'Full Stack', 'DevOps', 'Frontend']
+  const categories: string[] = ['All', 'Full Stack', 'DevOps', 'Frontend', 'Mobile']
 
  const projects: Project[] = [
     {
@@ -68,6 +68,15 @@ const Projects: React.FC = () => {
       image: "/images/Logo_ESPRIT_Ariana.jpg"
     },
     {
+      title: "InShave - Barber Shop Mobile App",
+      description: "Android mobile application that helps users book barber appointments and purchase products from barber shops. Features intuitive appointment scheduling, real-time availability, in-app store for barber products, push notifications for appointment reminders, and seamless payment integration. Designed with Material Design principles for optimal user experience.",
+      technologies: ["Android", "Java", "Kotlin", "Material Design", "Firebase", "REST API"],
+      category: "Mobile",
+      liveUrl: "#",
+      githubUrl: "https://github.com/naski-semah/inshave",
+      image: "/images/me.jpg"
+    },
+    {
       title: "Personal Portfolio",
       description: "Modern and responsive portfolio website showcasing projects and skills. Features CSS animations, JavaScript interactivity, SEO optimization, and web accessibility standards. Built with clean code and best practices.",
       technologies: ["HTML5", "CSS3", "JavaScript"],
@@ -92,8 +101,8 @@ const Projects: React.FC = () => {
               My Projects
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
-              A collection of projects that showcase my skills in web development, 
-              from simple websites to complex full-stack applications.
+              A collection of projects that showcase my skills in web and mobile development, 
+              from simple websites to complex full-stack applications and Android apps.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium transition-colors duration-300">
