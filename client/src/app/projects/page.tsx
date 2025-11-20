@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
       category: "Mobile",
       liveUrl: "#",
       githubUrl: "https://github.com/naski-semah/inshave",
-      image: "/images/me.jpg"
+      image: "/images/android-logo.svg"
     },
     {
       title: "Personal Portfolio",
