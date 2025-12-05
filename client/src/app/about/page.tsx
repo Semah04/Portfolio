@@ -246,21 +246,21 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Timeline Section */}
       <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-              Work Experience
+              Experience & Education Timeline
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
-              My professional journey and key achievements
+              My professional journey and educational background
             </p>
           </div>
 
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+              <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300 hover:shadow-md">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">{exp.title}</h3>
@@ -271,14 +271,16 @@ const About: React.FC = () => {
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">{exp.description}</p>
                 
-                <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2 transition-colors duration-300">Key Achievements:</h4>
-                  <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex}>{achievement}</li>
-                    ))}
-                  </ul>
-                </div>
+                {exp.achievements.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2 transition-colors duration-300">Key Achievements:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                      {exp.achievements.map((achievement, achIndex) => (
+                        <li key={achIndex}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             ))}
           </div>

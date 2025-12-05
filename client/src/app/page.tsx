@@ -1,5 +1,11 @@
 import Hero from '@/components/Hero'
 import ProjectCard from '@/components/ProjectCard'
+import GitHubStats from '@/components/GitHubStats'
+import Testimonials from '@/components/Testimonials'
+import CurrentlyLearning from '@/components/CurrentlyLearning'
+import WorkingOn from '@/components/WorkingOn'
+import FunFacts from '@/components/FunFacts'
+import BackToTop from '@/components/BackToTop'
 
 interface Project {
   title: string
@@ -232,6 +238,43 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* GitHub Stats Section */}
+      <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+              GitHub Activity
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
+              My open source contributions and activity
+            </p>
+          </div>
+          <GitHubStats />
+          <div className="text-center mt-8">
+            <a 
+              href="https://github.com/Semah04"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"
+            >
+              View My GitHub Profile →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Currently Learning Section */}
+      <CurrentlyLearning />
+
+      {/* What I'm Working On Section */}
+      <WorkingOn />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Fun Facts Section */}
+      <FunFacts />
+
       {/* Call to Action */}
       <section className="py-16 bg-blue-600 dark:bg-blue-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -243,12 +286,14 @@ const Home: React.FC = () => {
           </p>
           <a 
             href="/contact"
-            className="inline-block bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+            className="inline-block bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium py-3 px-8 rounded-lg transition-colors duration-200 transform hover:scale-105"
           >
             Get In Touch
           </a>
         </div>
       </section>
+
+      <BackToTop />
     </div>
   )
 }

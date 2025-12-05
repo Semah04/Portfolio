@@ -16,10 +16,11 @@ interface Project {
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
+  const [selectedTech, setSelectedTech] = useState<string>('All')
 
   const categories: string[] = ['All', 'Full Stack', 'DevOps', 'Frontend', 'Mobile']
 
- const projects: Project[] = [
+  const projects: Project[] = [
     {
       title: "Orange Digital Center - FabLabs Management Platform",
       description: "Designed and developed dynamic, user-friendly frontend using React/Next.js serving 500+ users and reducing equipment booking time by 40%. Engineered RESTful and GraphQL backend APIs using Node.js/Express.js managing 10,000+ monthly transactions. Integrated AI-powered conversational chatbot reducing support tickets by 35%. Implemented JWT-based RBAC supporting 4 user roles with 99.9% authentication reliability.",
@@ -87,9 +88,14 @@ const Projects: React.FC = () => {
     }
   ]
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  // Get all unique technologies for filtering (after projects is defined)
+  const allTechnologies = Array.from(new Set(projects.flatMap(p => p.technologies))).sort()
+
+  const filteredProjects = projects.filter(project => {
+    const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory
+    const techMatch = selectedTech === 'All' || project.technologies.includes(selectedTech)
+    return categoryMatch && techMatch
+  })
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
@@ -122,20 +128,51 @@ const Projects: React.FC = () => {
       {/* Filter Section */}
       <section className="py-8 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Filter by Category</h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-6 py-2 rounded-full font-medium transition-all duration-200 transform hover:scale-105 ${
+                    selectedCategory === category
+                      ? 'bg-blue-600 dark:bg-blue-700 text-white shadow-lg'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Filter by Technology</h3>
+            <div className="flex flex-wrap justify-center gap-2 max-h-32 overflow-y-auto">
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-blue-600 dark:bg-blue-700 text-white shadow-lg'
+                onClick={() => setSelectedTech('All')}
+                className={`px-4 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
+                  selectedTech === 'All'
+                    ? 'bg-blue-600 dark:bg-blue-700 text-white'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
               >
-                {category}
+                All
               </button>
-            ))}
+              {allTechnologies.slice(0, 15).map((tech) => (
+                <button
+                  key={tech}
+                  onClick={() => setSelectedTech(tech)}
+                  className={`px-4 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
+                    selectedTech === tech
+                      ? 'bg-blue-600 dark:bg-blue-700 text-white'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -215,7 +252,7 @@ const Projects: React.FC = () => {
               Start a Project
             </a>
             <a 
-              href="https://github.com/naski-semah"
+              href="https://github.com/Semah04"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-transparent border-2 border-white dark:border-blue-200 text-white dark:text-blue-200 hover:bg-white dark:hover:bg-blue-200 hover:text-blue-600 dark:hover:text-blue-800 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
