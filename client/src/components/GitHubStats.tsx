@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface GitHubStats {
   followers: number
@@ -75,16 +76,16 @@ const GitHubStats: React.FC = () => {
           Contribution Activity
         </h3>
         <div className="flex justify-center overflow-x-auto">
-          <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=Semah04&theme=react-dark&bg_color=ffffff&color=2563eb&line=2563eb&point=2563eb&area=true&hide_border=true"
-            alt="GitHub Activity Graph"
-            className="w-full max-w-4xl"
-            onError={(e) => {
-              // Fallback to alternative graph if first one fails
-              const target = e.target as HTMLImageElement
-              target.src = `https://github-readme-activity-graph.vercel.app/graph?username=Semah04&theme=github&bg_color=ffffff&color=000000&line=2563eb&point=2563eb&area=true&hide_border=true`
-            }}
-          />
+          <div className="relative w-full max-w-4xl h-64">
+            <Image
+              src="https://github-readme-activity-graph.vercel.app/graph?username=Semah04&theme=react-dark&bg_color=ffffff&color=2563eb&line=2563eb&point=2563eb&area=true&hide_border=true"
+              alt="GitHub Activity Graph"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 896px"
+              unoptimized
+            />
+          </div>
         </div>
         <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
           My GitHub contribution graph showing coding activity over time

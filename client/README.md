@@ -7,9 +7,11 @@ Portfolio website showcasing projects, skills, and professional experience as a 
 - **Modern Design**: Built with Next.js 14 and Tailwind CSS
 - **Dark Mode**: Toggle between light and dark themes
 - **Responsive**: Fully responsive design for all devices
-- **Performance**: Optimized for fast loading and SEO
+- **Performance**: Optimized for fast loading and SEO with Next.js Image component
 - **Projects Showcase**: Detailed project descriptions with technologies used
-- **Contact Form**: Easy way for potential clients to reach out
+- **Contact Form**: Functional contact form with EmailJS integration
+- **GitHub Integration**: Live GitHub stats and contribution graph
+- **Animations**: Smooth animations with Framer Motion
 
 ## 🛠️ Tech Stack
 
@@ -25,6 +27,23 @@ First, install the dependencies:
 ```bash
 npm install
 ```
+
+### Contact Form Setup (Optional but Recommended)
+
+To make the contact form functional, you'll need to set up EmailJS:
+
+1. Create a `.env.local` file in the `client` directory
+2. Add your EmailJS credentials (see `EMAILJS_SETUP.md` for detailed instructions):
+
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id_here
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id_here
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key_here
+```
+
+For detailed setup instructions, see [EMAILJS_SETUP.md](./EMAILJS_SETUP.md)
+
+**Note**: The form will still work without EmailJS (it will log to console), but emails won't be sent.
 
 Then, run the development server:
 
@@ -46,12 +65,19 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 4. Vercel will automatically detect Next.js and configure the build settings
 5. Click Deploy!
 
-### Manual Configuration
+### Environment Variables on Vercel
 
-If you need to configure manually, the `vercel.json` file in the root directory is already set up with:
-- Build command: `cd client && npm install && npm run build`
-- Output directory: `client/.next`
-- Framework: Next.js
+After deploying, make sure to add your EmailJS environment variables in Vercel:
+
+1. Go to your project settings on Vercel
+2. Navigate to **Environment Variables**
+3. Add:
+   - `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
+   - `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
+   - `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
+4. Redeploy your application
+
+See [EMAILJS_SETUP.md](./EMAILJS_SETUP.md) for detailed instructions.
 
 ## 📝 Project Structure
 

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface ProjectCardProps {
   title: string
   description: string
@@ -20,12 +22,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1 ${featured ? 'ring-2 ring-blue-500 dark:ring-blue-400' : ''}`}>
       {/* Project Image */}
-      <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden transition-colors duration-300">
+      <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden transition-colors duration-300 relative">
         {image ? (
-          <img 
+          <Image 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500">

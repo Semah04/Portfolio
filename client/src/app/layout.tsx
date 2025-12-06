@@ -65,7 +65,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "https://github.com/Semah04",
                 "https://www.linkedin.com/in/sameh-naski"
               ],
-              "email": "sameh.naski@esprit.tn",
+              "email": "naski.semah@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Ariana",

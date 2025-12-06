@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, ChangeEvent, FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 
 type SubmitStatus = 'idle' | 'success' | 'error'
 
@@ -45,10 +46,49 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      console.log('Form submitted:', formData)
+      // EmailJS configuration
+      // You'll need to set these in your .env.local file:
+      // NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+      // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+      // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+      
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+      
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS configuration missing. Please set environment variables.')
+        // Fallback: Still show success but log to console
+        console.log('Form submitted:', formData)
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+        setIsSubmitting(false)
+        return
+      }
+      
+      // Initialize EmailJS
+      emailjs.init(publicKey)
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'naski.semah@gmail.com', // Your email address
+        }
+      )
       
       setSubmitStatus('success')
       setFormData({
@@ -58,6 +98,7 @@ const Contact: React.FC = () => {
         message: ''
       })
     } catch (error) {
+      console.error('EmailJS error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -72,9 +113,9 @@ const Contact: React.FC = () => {
         </svg>
       ),
       title: "Email",
-      value: "sameh.naski@esprit.tn",
+      value: "naski.semah@gmail.com",
       description: "Send me an email anytime!",
-      link: "mailto:sameh.naski@esprit.tn"
+      link: "mailto:naski.semah@gmail.com"
     },
     {
       icon: (

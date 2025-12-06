@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="mailto:sameh.naski@esprit.tn" 
+                href="mailto:naski.semah@gmail.com" 
                 className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors transform hover:scale-110"
                 aria-label="Email"
               >
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Contact</h4>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
-              <li>sameh.naski@esprit.tn</li>
+              <li>naski.semah@gmail.com</li>
               <li>+216 52 552 004</li>
               <li>Ariana, Tunisia</li>
             </ul>
