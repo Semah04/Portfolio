@@ -77,6 +77,17 @@ const Contact: React.FC = () => {
       // Initialize EmailJS
       emailjs.init(publicKey)
       
+      // Get current timestamp
+      const timestamp = new Date().toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      })
+      
       // Send email using EmailJS
       await emailjs.send(
         serviceId,
@@ -86,6 +97,7 @@ const Contact: React.FC = () => {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
+          time: timestamp,
           to_email: 'naski.semah@gmail.com', // Your email address
         }
       )
